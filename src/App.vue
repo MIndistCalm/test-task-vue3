@@ -1,5 +1,6 @@
 <template>
-  <nav>
+  <!-- TODO сделать динамическуюсмену дизайна страницыпо времени -->
+  <nav :class="Date().getHours > 16 ? 'light' : 'dark'">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
@@ -13,6 +14,12 @@ export default {
 </script>
 
 <style lang="scss">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -24,6 +31,7 @@ export default {
 nav {
   padding: 30px;
 
+  // background-image: radial-gradient(#e6f2ff, #cee6ff);
   a {
     font-weight: bold;
     color: #2c3e50;
@@ -32,5 +40,11 @@ nav {
       color: #42b983;
     }
   }
+}
+nav.light {
+  background-image: radial-gradient(#bae412, #9fdb3d);
+}
+nav.dark {
+  background-image: radial-gradient(#224872, #001a35);
 }
 </style>
